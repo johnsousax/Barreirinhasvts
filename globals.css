@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { @apply bg-white font-sans text-ink antialiased; font-feature-settings: 'ss01'; }
+  h1, h2, h3, h4 { @apply font-display text-balance; }
+  p { text-wrap: pretty; }
+  :focus-visible { @apply outline-none ring-2 ring-lagoa-500 ring-offset-2; }
+  ::selection { @apply bg-sol-100 text-duna-900; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  .display-xl { @apply font-display font-bold tracking-[-0.035em] leading-[.95]; font-size: clamp(2.6rem, 7vw, 5.4rem); font-variation-settings: 'wdth' 90; }
+  .display-lg { @apply font-display font-semibold tracking-[-0.03em] leading-[1.02]; font-size: clamp(2rem, 4.4vw, 3.4rem); }
+  .display-md { @apply font-display font-semibold tracking-[-0.02em] leading-[1.1]; font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+  .lead { @apply text-lg leading-relaxed text-ink-soft sm:text-xl; }
+  .section { @apply py-16 sm:py-24; }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .prose-legal h2 { @apply mt-10 mb-3 text-xl font-semibold text-ink; }
+  .prose-legal p { @apply mb-4 leading-relaxed text-ink-soft; }
+}
